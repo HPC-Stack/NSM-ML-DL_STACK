@@ -1,0 +1,25 @@
+#%Module
+
+module-whatis 'anaconda 3 - Theano-gpu Environment'
+
+proc ModulesHelp { } {
+    puts stderr "Conda environment with Theano-gpu"
+}
+
+setenv CONDA_SHLVL 1
+setenv CONDA_PREFIX /home/apps/MLDL/DL-CondaPy3.10/envs/Theano-gpu
+prepend-path PATH $env(CONDA_PREFIX)/bin
+setenv CONDA_DEFAULT_ENV Theano-gpu
+setenv VIRTUAL_ENV $env(CONDA_PREFIX)
+
+if { [module-info mode load] } {
+        system source $env(CONDA_PREFIX)/bin/activate Theano-gpu
+        system conda activate Theano-gpu
+}
+
+if { [module-info mode remove] } {
+        system conda deactivate
+        system conda deactivate
+        system /bin/bash
+}
+

@@ -1,0 +1,24 @@
+#%Module
+
+module-whatis 'anaconda 3 - Horovod-Pytorch Environment'
+
+proc ModulesHelp { } {
+    puts stderr "Conda environment with Horovod-Pytorch"
+}
+
+setenv CONDA_SHLVL 1
+setenv CONDA_PREFIX /home/apps/MLDL/DL-CondaPy3.10/envs/Horovod-Pytorch
+prepend-path PATH $env(CONDA_PREFIX)/bin
+setenv CONDA_DEFAULT_ENV Horovod-Pytorch
+setenv VIRTUAL_ENV $env(CONDA_PREFIX)
+
+if { [module-info mode load] } {
+        system source $env(CONDA_PREFIX)/bin/activate Horovod-Pytorch
+        system conda activate Horovod-Pytorch
+}
+
+if { [module-info mode remove] } {
+        system conda deactivate
+        system conda deactivate
+        system /bin/bash
+}
