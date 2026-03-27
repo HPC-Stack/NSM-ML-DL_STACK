@@ -14,7 +14,7 @@ source $INSTALLATION_PATH/bin/activate
 conda tos accept
 
 # Create a new conda environment for Deep Learning
-for yml_file in `ls YMLFiles/*.yml`; do
+for yml_file in `ls YMLfiles/*.yml`; do
     conda env create -f $yml_file
 done
 
